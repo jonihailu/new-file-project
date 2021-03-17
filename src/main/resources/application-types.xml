@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="inputparameter" format="json">
+      <types:shape format="weave" example="examples/AAAA-1.json"><![CDATA[%dw 2.0
+
+type inputparameter = Array<{|  Id: Number {"typeId": "int"},   Name: String,   Email: String|}> {"example": "[{\\\"Id\\\":1,\\\"Name\\\":\\\"Michael\\\",\\\"Email\\\":\\\"Sisay@gmail.com\\\"},{\\\"Id\\\":2,\\\"Name\\\":\\\"Daniael\\\",\\\"Email\\\":\\\"Biniyam@yahoo.com\\\"},{\\\"Id\\\":3,\\\"Name\\\":\\\"Mulugeta\\\",\\\"Email\\\":\\\"Endale@hotmail.com\\\"}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#284115ce-6645-4a97-a569-36328b22a105">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="inputparameter"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
